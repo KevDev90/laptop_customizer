@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 
 export default class CartItems extends Component {
     render() {
-
-        return (
+      return (
             <div className="summary__option" key={this.props.featureHash}>
                 <div className="summary__option__label">{this.props.featureElement}</div>
                 <div className="summary__option__value">{this.props.selectedOption.name}</div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Form from './Form/Form';
 import Cart from './Cart/Cart';
 import './App.css';
+import CustomizeList from './CustomizeList/CustomizeList';
 
 const USCurrencyFormat = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -51,19 +51,12 @@ export default class App extends Component {
           <h1>ELF Computing | Laptops</h1>
         </header>
         <main>
-          <form className="main__form">
-            <h2>Customize your laptop</h2>
-            {Object.keys(this.props.features).map((feature, index) =>
-              <Form
-                featureElement={feature}
-                key={feature + '-' + index}
+          <CustomizeList  
                 features={this.props.features}
                 selected={this.state.selected}
-                onChange={this.handleChange}
+                handleChange={this.handleChange}
                 USCurrencyFormat={USCurrencyFormat}
-              />
-            )}
-          </form>
+          />
           <Cart
             selected={this.state.selected}
             total={total}

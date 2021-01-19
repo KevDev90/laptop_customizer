@@ -1,31 +1,24 @@
-import React, { Component } from 'react';
-import CustomizeOptions from './CustomizeOptions/CustomizeOptions';
+import React from 'react';
+import Form from '../Form/Form'
 
-export default class CustomizeList extends Component {
+const CustomizeList = (props) => {
 
-  render() {
-    const options = this.props.options.map((item, index) => {
-      const selectedClass = item.name === this.props.selected[this.props.name].name ? 'feature_selected' : '';
-      const featureClass = 'feature_option' + selectedClass;
-      return (
-        <CustomizeOptions
-          featureClass={featureClass}
-          key={index}
-          onSelect={this.props.onSelect}
-          item={item}
-          featureName={this.props.name}
-        />
-      )
-    })
-
-    return (
-      <div className="feature" key={this.props.name}>
-        <div className="feature__name">{this.props.name}</div>
-        <ul className="feature__list">
-          {options}
-        </ul>
-      </div>
-    );
-
-  }
+   return (
+    <form className="main__form">
+    <h2>Customize your laptop</h2>
+    {Object.keys(props.features).map((feature, index) =>
+      <Form
+        featureElement={feature}
+        key={feature + '-' + index}
+        features={props.features}
+        selected={props.selected}
+        onChange={props.handleChange}
+        USCurrencyFormat={props.USCurrencyFormat}
+      />
+    )}
+  </form>
+   )
+  
 }
+
+export default CustomizeList;
