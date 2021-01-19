@@ -4,8 +4,7 @@ import slugify from 'slugify'
 export default class CustomizeOptions extends Component {
     render() {
         const itemHash = slugify(JSON.stringify(this.props.items));
-        console.log('1', this.props.items)
-        console.log('itemHash', itemHash)
+        
     
         return (
             <div>
