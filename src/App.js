@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Cart from './Cart/Cart';
 import './App.css';
 import CustomizeList from './CustomizeList/CustomizeList';
+// import Features from "./Features";
 
 const USCurrencyFormat = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -9,6 +10,7 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
 });
 
 export default class App extends Component {
+  
   state = {
     selected: {
       Processor: {
@@ -46,7 +48,9 @@ export default class App extends Component {
     );
 
     return (
+      
       <div className="App">
+      {console.log(this.props)}
         <header>
           <h1>ELF Computing | Laptops</h1>
         </header>
